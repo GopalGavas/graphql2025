@@ -1,4 +1,4 @@
-export const games = [
+export let games = [
   {
     id: "1",
     title: "The Legend of Zelda: Breath of the Wild",
@@ -26,7 +26,7 @@ export const games = [
   },
 ];
 
-export const authors = [
+export let authors = [
   {
     id: "1",
     name: "John Doe",
@@ -54,7 +54,7 @@ export const authors = [
   },
 ];
 
-export const reviews = [
+export let reviews = [
   {
     id: "1",
     rating: 5,

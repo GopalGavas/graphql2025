@@ -32,6 +32,32 @@ const resolvers = {
       return games.find((g) => g.id === parent.gameId);
     },
   },
+  Mutation: {
+    deleteGame: (_, args) => {
+      const index = games.findIndex((g) => g.id === args.id);
+      if (index === -1) return null;
+
+      games.splice(index, 1);
+      return games;
+    },
+
+    addGame: (_, args) => {
+      let game = {
+        ...args.game,
+        id: Math.floor(Math.random() * 10000).toString(),
+      };
+      games.push(game);
+      return game;
+    },
+
+    updateGame: (_, args) => {
+      const index = games.findIndex((g) => g.id === args.id);
+      if (index === -1) return null;
+
+      games[index] = { ...games[index], ...args.edits };
+      return games[index];
+    },
+  },
 };
 
 const server = new ApolloServer({
